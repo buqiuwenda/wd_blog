@@ -40,3 +40,4 @@ I believe it will be better and better. If you are interested in this, you can j
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+
