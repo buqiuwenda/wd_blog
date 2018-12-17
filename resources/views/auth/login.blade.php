@@ -39,6 +39,22 @@
                             </div>
                         </div>
 
+
+                        <div class="form-group {{ $errors->has('captcha') ? 'has-error' : '' }}">
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="captcha" placeholder="验证码" required maxlength="4">
+                                <span class="input-group-addon no-padding">
+                            <img src="{{ captcha_src() }}" alt="图形验证码" onclick="this.src='/captcha/default?'+Math.random()" style="cursor: pointer" data-refresh-config="default" height="32" width="100">
+                        </span>
+                            </div>
+
+                            @if ($errors->has('captcha'))
+                                <span class="help-block">
+                            <strong>{{ $errors->first('captcha') }}</strong>
+                        </span>
+                            @endif
+                        </div>
+
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
