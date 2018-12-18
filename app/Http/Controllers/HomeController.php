@@ -3,17 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Services\ArticleService;
 
 class HomeController extends Controller
 {
+    protected $articleService;
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(ArticleService $articleService)
     {
-        $this->middleware('auth');
+        $this->articleService = $articleService;
     }
 
     /**
@@ -24,5 +26,14 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+
+    public function search(Request $request)
+    {
+       $q = $request->get('q');
+
+        $article = $this->articleService->search($q);
+
+        return view('search')->with(compact($article));
     }
 }
