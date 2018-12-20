@@ -45,8 +45,8 @@
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
-                            <li class="dropdown-item"><a href="{{ url('user', ['name' => Auth::user()->name]) }}"><i class="fas fa-user"></i>个人中心</a></li>
-                            <li class="dropdown-item"><a href="{{ url('setting') }}"><i class="fas fa-cog"></i>设置</a></li>
+                            <li class="dropdown-item"><a href="{{ url('user/profile') }}"><i class="fas fa-user"></i>个人中心</a></li>
+                            <li class="dropdown-item"><a href="{{ url('user/setting') }}"><i class="fas fa-cog"></i>设置</a></li>
 
                             <li class="dropdown-divider"></li>
                             <li class="dropdown-item">

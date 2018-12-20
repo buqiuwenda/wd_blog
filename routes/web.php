@@ -25,4 +25,11 @@ Route::post('password/change', 'UserController@changePassword')->middleware('aut
 
 Route::post('comments', 'CommentController@store')->middleware('auth');
 
+Route::group(['prefix' => 'user'], function(){
+   Route::group(['middleware' => 'auth'], function(){
+        Route::get('profile', 'UserController@edit');
+        Route::get('setting', 'UserController@setting');
+        Route::put('profile/{id}', 'UserController@update');
+   });
 
+});
