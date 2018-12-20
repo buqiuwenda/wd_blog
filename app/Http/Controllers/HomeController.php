@@ -32,8 +32,8 @@ class HomeController extends Controller
     {
        $q = $request->get('q');
 
-        $article = $this->articleService->search($q);
+        $articles = $this->articleService->search($q);
 
-        return view('search')->with(compact($article));
+        return view('search')->with(compact('articles'));
     }
 }

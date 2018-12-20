@@ -22,7 +22,7 @@ class ArticleService
 
     public function page($number = 10, $sort ='desc', $sortColumn = 'view_count')
     {
-        $rows = Article::query()->with('tags','user')->where('status', '=', 1)->where('is_draft', '=', 0)
+        $rows = Article::query()->where('status', '=', 1)->where('is_draft', '=', 0)
             ->orderby($sortColumn, $sort)->paginate($number);
 
         return $rows;
@@ -70,11 +70,20 @@ class ArticleService
 
     public function search($key)
     {
-         trim($key);
+        $key= trim($key);
 
-        $row = Article::query()->where('title', 'like', '%{$key}%')->orderBy('published_at', 'desc')
-        ->get();
+        $row = Article::query()->where('status', '=', 1)->where('is_draft', '=', 0)
+            ->where('title', 'like', '%'.$key.'%')->orderBy('published_at', 'desc')
+            ->paginate(10);
 
         return $row;
+    }
+
+    public function getList($number = 6, $sort ='desc', $sortColumn = 'id')
+    {
+        $rows = Article::query()->where('status', '=', 1)->where('is_draft', '=', 0)
+            ->orderBy($sortColumn, $sort)->take($number)->get();
+
+        return $rows;
     }
 }

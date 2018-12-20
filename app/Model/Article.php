@@ -42,9 +42,9 @@ class Article  extends Model
 
     ];
 
-    public function user()
+    public function member()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Member::class);
     }
 
     public function tags()
@@ -83,7 +83,7 @@ class Article  extends Model
 
     public function comments()
     {
-        return $this->morphMan(Comment::class, 'commentable');
+        return $this->morphMany(Comment::class, 'commentable');
     }
 
 }

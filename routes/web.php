@@ -21,4 +21,8 @@ Route::get('search','HomeController@search');
 Route::get('/','ArticleController@index');
 Route::get('{slug}','ArticleController@show');
 
+Route::post('password/change', 'UserController@changePassword')->middleware('auth');
+
+Route::post('comments', 'CommentController@store')->middleware('auth');
+
 

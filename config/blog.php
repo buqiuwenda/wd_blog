@@ -21,7 +21,7 @@ return [
            'open'=>true,
            'url'=>'https://github.com/buqiuwenda'
         ],
-        'mate'=>' BQWD Blog Powered By bu qiu wen da.',
+        'meta'=>' BQWD Blog Powered By bu qiu wen da.',
         'icpno'=> ' 赣ICP备16004317号 '
     ],
 
@@ -61,6 +61,5 @@ return [
     ],
 
     // License
-     'license' => 'Powered By bu qiu wen da.<br/>This article is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.',
-
+     'license' => '本站文章除注明转载外，均为原创文章。转载请注明： 文章转载自',
 ];

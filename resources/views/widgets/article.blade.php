@@ -1,45 +1,39 @@
-<div class="container list">
-    <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-            @forelse( $articles as $article)
-                <div class="media">
-                    @if( $article->page_image)
-                        <a class="media-left" href=" {{ url($article->slug) }} ">
-                            <img alt="{{ $article->slug }}" src="{{ env('QINIU_DOMAIN').$article->page_image }}" data-holder-rendered="true">
-                        </a>
-                    @endif
-                    <div class="media-body">
-                        <h6 class="media-heading">
-                            <a href="{{ $article->slug }}">
-                                {{ $article->title }}
-                            </a>
-                        </h6>
-                        <div class="mate">
-                            <span class="cinme">{{ $article->subtitle }}</span>
-                        </div>
-                        <div class="description">
-                            {{ $article->mate_description }}
-                        </div>
-                        <div class="extra">
-                            @foreach($article->tags as $tag)
-                                <a href="{{ url('tag',['tag'=>$tag->tag]) }}">
-                                    <div class="label"><i class="ion-pricetag"></i>{{ $tag->tag }}</div>
-                                </a>
-                            @endforeach
-                            <div class="info">
-                                <i class="ion-person"></i>{{ $article->user->name or '无名' }}
-                                <i class="ion-clock"></i>{{ $article->published_at}}
-                                <i class="ion-ios-eye"></i>{{ $article->view_count }}
-                                <a href="{{ url($article->slug) }}" class="pull-right">
-                                    查看更多 <i class="ion-ios-arrow-forward"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+
+        <div class="col-sm-12 col-md-9">
+            @if(request()->get('q'))
+            <div class="well well-sm text-center">
+               {{request()->get('q')}}
+            </div>
+            @endif
+            @forelse($articles as $article)
+            <div class="thumbnail">
+                <div class="vc-pagelist-img">
+                    <a href=""><img src="{{ env('QINIU_DOMAIN').$article->page_image }}" alt="{{ $article->slug }}">
+                    </a>
                 </div>
+                <div class="caption">
+                    <h1 class="vc-page-title"><a href="{{ url($article->slug) }}">{{ $article->title }}</a></h1>
+                    <p class="vc-author-info">
+                        <time>{{ $article->published_at }}</time> &bull; <span> {{ $article->member->name or '无名' }}</span> &bull; <span><i class="fas fa-eye "> {{ $article->view_count }}</i></span>
+                    </p>
+                    <p class="hidden-xs">{{$article->meta_description }}</p>
+                    <p class="clearfix">
+                        <a class="hidden-xs pull-right vc-more-link" href="{{ url($article->slug) }}" role="button">继续阅读 &raquo;</a>
+                        <span class="vc-tags">
+                             @foreach($article->tags as $tag)
+                                <a href="{{ url('tag', ['tag' => $tag->tag]) }}">
+                                  {{ $tag->tag }}
+                               </a>
+                            @endforeach
+                        </span>
+                    </p>
+                </div>
+            </div>
             @empty
-                <h3 class="text-center">暂无文章，请联系 <strong>buqiuwenda@foxmail.com</strong></h3>
+                <h3 class="text-center">暂未文章，请联系站长</h3>
             @endforelse
+
+            {{ $articles->links('pagination.default') }}
+
         </div>
-    </div>
-</div>
+
