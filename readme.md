@@ -8,10 +8,13 @@ I believe it will be better and better. If you are interested in this, you can j
 
 ## Basic Features
   
-- Manage user 
-- articles,discussion
-- admin
-- notification
+- 文章列表 
+- 文章详情
+- 个人中心
+- 右边栏
+
+## Preview
+- [闻达首页](https://www.buqiuwenda.com)
 
 ## Install
 
@@ -31,11 +34,11 @@ I believe it will be better and better. If you are interested in this, you can j
 ## Server Requirements
 
 - PHP >= 7.1.0
-- OpenSSL PHP Extension
-- PDO PHP Extension
-- Mbstring PHP Extension
-- Tokenizer PHP Extension
-- XML PHP Extension
+- Mysql = 5.7
+- Nginx >= 1.8.1
+- Laravel = 5.6
+- Bootstrap = 3.4
+- Centos = 7.0
 
 ## License
 
