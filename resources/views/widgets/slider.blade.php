@@ -9,10 +9,10 @@
         </div>
     </div>
     <div class="panel panel-default">
-        <h4 class="vc-widget-title">主题声明</h4>
+        <h4 class="vc-widget-title">声明</h4>
         <div class="panel-body">
             <p style="text-indent:2rem;word-break:break-all;">
-                这是一个基于bootstrap框架的主题，是一款私有主题，如果您不小心使用了该主题，请注明版权，禁止商业行为。
+               {{ config('blog.statement') }}
             </p>
         </div>
     </div>
