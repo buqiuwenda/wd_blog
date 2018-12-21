@@ -21,7 +21,7 @@ return [
            'open'=>true,
            'url'=>'https://github.com/buqiuwenda'
         ],
-        'meta'=>' BQWD Blog Powered By bu qiu wen da.',
+        'meta'=>'buqiuwenda.com &copy; 2018-2019',
         'icpno'=> ' 赣ICP备16004317号 '
     ],
 
@@ -62,4 +62,7 @@ return [
 
     // License
      'license' => '本站文章除注明转载外，均为原创文章。转载请注明： 文章转载自',
+
+    // statement
+    'statement' => '这是一个基于PHP语言开发个人版博客，如果您不小心使用了该博客内容，请注明版权，禁止商业行为。'
 ];
