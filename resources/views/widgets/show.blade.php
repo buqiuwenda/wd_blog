@@ -16,9 +16,7 @@
             @endforeach
           </span>
         <div class="vc-copyright">
-            @if($article->is_original)
-                {!! config('blog.license') !!} <strong class="text-danger"> （{{ env('APP_URL') }}）</strong>
-            @endif
+            {!! config('blog.license') !!} <strong class="text-danger"> （{{ env('APP_URL') }}）</strong>
         </div>
     </article>
 </div>

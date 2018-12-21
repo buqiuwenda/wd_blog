@@ -63,7 +63,13 @@ class ArticleService
 
     public function hasArticleIp($article_id, $ip)
     {
+        $start_date = date('Y-m-01 00:00:00');
+
+        $d =date('t') - date('j');
+        $end_date = date('Y-m-d 23:59:59', strtotime("+{$d} day"));
+
         return ArticleVisitor::query()->where('article_id', '=', $article_id)
+            ->where('created_at','>=', $start_date)->where('created_at', '<=', $end_date)
             ->where('ip', '=', $ip)->count()? true:false;
     }
 
