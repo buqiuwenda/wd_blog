@@ -12,8 +12,8 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item"><a class="nav-link" href="{{ url('/') }}">文章</a></li>
-                <li><a href="https://m.aliyun.com/act/team1212?params=N.iXqStQXSGs">阿里云年末钜惠</a></li>
-                <li><a href="https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=6qjdwdpj">阿里云云大使推广</a></li>
+                <li class="nav-item"><a class="nav-link" href="https://m.aliyun.com/act/team1212?params=N.iXqStQXSGs">阿里云年末钜惠</a></li>
+                <li class="nav-item"><a class="nav-link" href="https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=6qjdwdpj">阿里云云大使推广</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->
