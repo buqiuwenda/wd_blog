@@ -11,10 +11,27 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::get('search','HomeController@search');
+
+Route::get('/','ArticleController@index');
+Route::get('{slug}','ArticleController@show');
+
+Route::post('password/change', 'UserController@changePassword')->middleware('auth');
+
+Route::post('comments', 'CommentController@store')->middleware('auth');
+
+Route::group(['prefix' => 'user'], function(){
+   Route::group(['middleware' => 'auth'], function(){
+        Route::get('profile', 'UserController@edit');
+        Route::get('setting', 'UserController@setting');
+        Route::put('profile/{id}', 'UserController@update');
+   });
+
+});
+
