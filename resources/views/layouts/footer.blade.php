@@ -24,6 +24,6 @@
         </div>
     </div>
     <div class="copy-right text-center">
-        <span>{!! config('blog.footer.meta') !!} {!! config('blog.footer.icpno') !!}</span>
+        <span> <strong>Copyright</strong> {!! config('blog.footer.meta') !!} {!! config('blog.footer.icpno') !!}</span>
     </div>
 </footer>

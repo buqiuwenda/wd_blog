@@ -6,6 +6,8 @@ This is a powerful blog, I try to build the blog more beautiful, more convenient
 
 I believe it will be better and better. If you are interested in this, you can join and enjoy it.
 
+[Example](https://www.buqiuwenda.com)
+
 ## Basic Features
   
 - 文章列表 
@@ -14,7 +16,10 @@ I believe it will be better and better. If you are interested in this, you can j
 - 右边栏
 
 ## Preview
-- [闻达首页](https://www.buqiuwenda.com)
+
+![WenDa Blog](https://qncdn.buqiuwenda.com/wenda-index.png)
+
+![WenDa Blog](https://qncdn.buqiuwenda.com/wenda-show.png)
 
 ## Install
 
@@ -30,6 +35,10 @@ I believe it will be better and better. If you are interested in this, you can j
 
 - [WenDa](http://github.com/buqiuwenda)
 
+## Thanks
+
+- [Laravist](https://www.laravist.com/)
+- [Laravel - China](https://laravel-china.org/)
 
 ## Server Requirements
 
