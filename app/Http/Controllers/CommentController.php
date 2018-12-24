@@ -25,6 +25,7 @@ class CommentController  extends  Controller
         $params = $request->all();
 
         $params['user_id'] = \Auth::id();
+        $params['content'] = strip_tags($params['content']);
 
         $model = new Comment();
         $model->fill($params);
