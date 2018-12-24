@@ -1,4 +1,4 @@
-<div class="visible-lg visible-md col-md-3">
+<div class=" col-sm-3">
     <div class="panel panel-default">
         <div class="panel-body">
             <form role="search" action="{{ url('search') }}">

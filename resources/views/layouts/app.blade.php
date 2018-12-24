@@ -11,8 +11,8 @@
     <link rel="shortcut icon" href="{{ config('blog.default_icon') }}">
 
     <!-- Bootstrap core CSS -->
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/rewrite-bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
+
 
 
     <!-- Custom fonts for this template -->
