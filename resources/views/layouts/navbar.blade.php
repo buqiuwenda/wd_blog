@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-        <a class="navbar-brand" href="{{ url('/') }}">
-            {{ config('app.name') }}
+        <a class="navbar-brand" style="padding-top:16px;" href="{{ url('/') }}">
+           <strong>{{ config('app.name') }}</strong>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fas fa-bars"></i>
