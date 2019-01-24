@@ -11,6 +11,8 @@ use App\Model\Article;
 use App\Model\ArticleVisitor;
 use App\Tools\IP;
 use Illuminate\Support\Facades\Auth;
+use App\Model\IPInfo;
+use Log;
 
 class ArticleService
 {
@@ -91,5 +93,25 @@ class ArticleService
             ->orderBy($sortColumn, $sort)->take($number)->get();
 
         return $rows;
+    }
+
+
+    public function storeIPInfo($ip)
+    {
+        try{
+            $ip_data = $this->ip->getIpAddress($ip);
+
+            if($ip_data){
+                $info = IPInfo::query()->where('ip', '=', $ip)->first();
+
+                if(empty($info)){
+                    $model = new IPInfo();
+                    $model->fill($ip_data);
+                   $model->save();
+                }
+            }
+        }catch(\Exception $exception){
+            Log::info('exception message'.$exception->getMessage());
+        }
     }
 }

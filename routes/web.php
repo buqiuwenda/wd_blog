@@ -12,6 +12,8 @@
 */
 
 
+Route::any('notify_url', 'HomeController@notify_url');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
