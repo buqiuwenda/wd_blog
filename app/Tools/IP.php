@@ -9,7 +9,9 @@
 namespace App\Tools;
 
 use Illuminate\Http\Request;
-use App\Tools\IPLocal\ipLocal;
+use App\Tools\IPLocal\itbdw\IpLocation;
+
+
 class IP
 {
     protected $request;
@@ -30,23 +32,25 @@ class IP
     }
 
 
+
     public function getIpAddress($ip)
     {
-        if($ip=='127.0.0.1'){
-            return [
-              'country'=>'',
-              'province'=>'',
-              'city'=>''
-            ];
+        if($this->check_ip($ip)){
+           return  IpLocation::getLocation($ip);
         }
 
-        $ipLocal = new ipLocal();
-        $ip_address=$ipLocal->find($ip);
-
-        return [
-          'country'=>$ip_address[0],
-          'province'=>$ip_address[1],
-          'city'=>$ip_address[2],
-        ];
+        return [];
     }
+
+
+     public function check_ip($ip){
+        if(filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE)){
+            return true;
+        }elseif($ip == '127.0.0.1'){
+            return false;
+        }
+
+        return false;
+    }
+
 }
