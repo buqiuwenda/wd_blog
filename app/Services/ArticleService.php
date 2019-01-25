@@ -58,6 +58,7 @@ class ArticleService
             ];
 
             $query->firstOrCreate($data);
+            $this->storeIPInfo($ipLocal);
         }
 
     }
@@ -102,12 +103,19 @@ class ArticleService
             $ip_data = $this->ip->getIpAddress($ip);
 
             if($ip_data){
+                Log::info('ip_data:'.json_encode($ip_data));
                 $info = IPInfo::query()->where('ip', '=', $ip)->first();
 
                 if(empty($info)){
                     $model = new IPInfo();
                     $model->fill($ip_data);
-                   $model->save();
+                   $id = $model->save();
+
+                   if($id){
+                       Log::info('add ip info success');
+                   }else{
+                       Log::info('add ip info fail');
+                   }
                 }
             }
         }catch(\Exception $exception){
