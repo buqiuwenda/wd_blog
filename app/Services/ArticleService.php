@@ -13,6 +13,7 @@ use App\Tools\IP;
 use Illuminate\Support\Facades\Auth;
 use App\Model\IPInfo;
 use Log;
+use App\Model\Bulletin;
 
 class ArticleService
 {
@@ -121,5 +122,12 @@ class ArticleService
         }catch(\Exception $exception){
             Log::info('exception message'.$exception->getMessage());
         }
+    }
+
+
+
+    public function getBulletinList($status = 1)
+    {
+        return Bulletin::query()->where('status', $status)->orderBy('priority', 'desc')->orderBy('id', 'desc')->get();
     }
 }

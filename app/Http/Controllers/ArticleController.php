@@ -25,7 +25,9 @@ class ArticleController  extends  Controller
         $articles = $this->articleService->page();
         $lists = $this->articleService->getList();
 
-        return view('article.index', compact('articles', 'lists'));
+        $bulletins = $this->articleService->getBulletinList();
+
+        return view('article.index', compact('articles', 'lists', 'bulletins'));
      }
 
 
