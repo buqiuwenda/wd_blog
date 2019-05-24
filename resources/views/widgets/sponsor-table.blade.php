@@ -3,7 +3,6 @@
 
         <div class="ibox float-e-margins">
             <div class="ibox-title">
-                <h5>赞助管理 </h5>
                 <div class="ibox-tools">
 
                     分页: {{ $rows->perPage() }} / {{ $rows->lastPage() }} / {{ $rows->currentPage() }} 总计: {{ $rows->total() }}
