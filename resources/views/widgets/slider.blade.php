@@ -1,5 +1,14 @@
 <div class=" col-sm-3">
     <div class="panel panel-default">
+        <h4 class="vc-widget-title text-danger">金牌赞助</h4>
+        <div class="panel-body">
+            <p style="text-indent:2rem;word-break:break-all;">
+
+            </p>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
         <div class="panel-body">
             <form role="search" action="{{ url('search') }}">
                 <div class="form-group" style="margin-bottom:0;">
@@ -8,14 +17,27 @@
             </form>
         </div>
     </div>
+
+    @forelse($bulletins as $bulletin)
+    <div class="panel panel-default">
+        <h4 class="vc-widget-title">{{$bulletin->title}}</h4>
+        <div class="panel-body">
+            <p style="text-indent:2rem;word-break:break-all;font-size:14px">
+               {{ $bulletin->context }}
+            </p>
+        </div>
+    </div>
+    @empty
     <div class="panel panel-default">
         <h4 class="vc-widget-title">声明</h4>
         <div class="panel-body">
             <p style="text-indent:2rem;word-break:break-all;">
-               {{ config('blog.statement') }}
+                {{ config('blog.statement') }}
             </p>
         </div>
     </div>
+    @endforelse
+
     <div class="panel panel-default">
         <h4 class="vc-widget-title">最近更新</h4>
         <div class="panel-body">

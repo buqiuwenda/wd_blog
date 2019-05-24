@@ -22,7 +22,7 @@ class ArticleService
         $this->ip = $ip;
     }
 
-    public function page($number = 10, $sort ='desc', $sortColumn = 'updated_at')
+    public function page($number = 5, $sort ='desc', $sortColumn = 'updated_at')
     {
         $rows = Article::query()->where('status', '=', 1)->where('is_draft', '=', 0)
             ->orderby($sortColumn, $sort)->paginate($number);
@@ -121,5 +121,11 @@ class ArticleService
         }catch(\Exception $exception){
             Log::info('exception message'.$exception->getMessage());
         }
+    }
+
+
+    public function getInfoById($id)
+    {
+        return Article::query()->find($id);
     }
 }

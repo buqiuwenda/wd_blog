@@ -11,22 +11,17 @@
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item"><a class="nav-link" href="{{ url('/') }}">文章</a></li>
-                <li class="nav-item"><a class="nav-link" href="https://tm.aliyun.com/?userCode=6qjdwdpj">阿里云注册商标最低300元</a></li>
-                <li class="nav-item"><a class="nav-link" href="https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=6qjdwdpj">阿里云云大使推广</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url('/') }}"><h4>文章</h4></a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url('/sponsor') }}"><h4>赞助</h4></a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav navbar-right">
                 <!-- Search Box -->
-                {{--<form class="form-inline my-2 my-lg-0 search" role="search" method="get" action="{{ url('search') }}">--}}
-                    {{--<input class="form-control mr-sm-2" type="search" name="q" placeholder="搜索" required>--}}
-                {{--</form>--}}
-
                 <!-- Authentication Links -->
                 @if (Auth::guest())
-                    <li class="nav-item"><a class="nav-link" href="{{ url('login') }}">登陆</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url('register') }}">注册</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url('login') }}"><h4>登陆</h4></a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url('register') }}"><h4>注册</h4></a></li>
                 @else
                     <li class="nav-item notification">
                         <a class="nav-link" href="{{ url('user/notification') }}"><i class="fas fa-bell">

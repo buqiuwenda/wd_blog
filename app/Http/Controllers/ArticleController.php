@@ -8,16 +8,19 @@
 namespace App\Http\Controllers;
 
 use App\Services\ArticleService;
+use App\Services\BulletinService;
 use App\Services\CommentService;
 
 class ArticleController  extends  Controller
 {
 
     protected $articleService;
+    protected $bulletinService;
 
-    public function __construct(ArticleService $articleService)
+    public function __construct(ArticleService $articleService, BulletinService $bulletinService)
     {
         $this->articleService = $articleService;
+        $this->bulletinService = $bulletinService;
     }
 
      public function index()
@@ -25,7 +28,9 @@ class ArticleController  extends  Controller
         $articles = $this->articleService->page();
         $lists = $this->articleService->getList();
 
-        return view('article.index', compact('articles', 'lists'));
+        $bulletins = $this->bulletinService->getBulletinList();
+
+        return view('article.index', compact('articles', 'lists', 'bulletins'));
      }
 
 
@@ -39,7 +44,9 @@ class ArticleController  extends  Controller
         $comments = $commentServices->getList($article['id'], 'articles');
         $lists = $this->articleService->getList();
 
-        return view('article.show', compact('article', 'comments', 'lists'));
+         $bulletins = $this->bulletinService->getBulletinList();
+
+        return view('article.show', compact('article', 'comments', 'lists', 'bulletins'));
      }
 
 }

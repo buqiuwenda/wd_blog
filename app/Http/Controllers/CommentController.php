@@ -35,6 +35,10 @@ class CommentController  extends  Controller
             return back()->withErrors(['msg' => '发布评论失败，请重试']);
         }
 
-        return redirect($params['slug']);
+        if($params['commentable_id'] == env('ARTICLE_ID')){
+            return redirect('sponsor');
+        }else{
+            return redirect($params['slug']);
+        }
     }
 }

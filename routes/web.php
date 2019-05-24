@@ -21,8 +21,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('search','HomeController@search');
 
+Route::get('/sponsor', 'SponsorController@index')->name('sponsor');
+
 Route::get('/','ArticleController@index');
 Route::get('{slug}','ArticleController@show');
+
+
 
 Route::post('password/change', 'UserController@changePassword')->middleware('auth');
 
