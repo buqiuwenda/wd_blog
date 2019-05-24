@@ -12,6 +12,7 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item"><a class="nav-link" href="{{ url('/') }}"><h4>文章</h4></a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url('/sponsor') }}"><h4>赞助</h4></a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->
