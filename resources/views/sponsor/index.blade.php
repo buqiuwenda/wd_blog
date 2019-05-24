@@ -29,8 +29,10 @@
                     <p class="margin_text"><img src="{{ env('WEIXIN_IMAGE_URL') }}" data-filename="wechatpay-qrcode" style="font-family: inherit; font-style: inherit; font-weight: inherit; width: 50%;"></p>
                 </div>
                 <p class="p_text">以下是曾经捐赠过闻达博客的用户，闻达博客的发展离不开你们的支持，闻达君再次对你们表示感谢：</p>
+
               @include('widgets.sponsor-table')
 
+              @include('widgets.comment')
 
                 <!-- CODE END -->
             </div>

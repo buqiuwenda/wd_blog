@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use App\Services\BulletinService;
 use App\Services\ArticleService;
 use App\Model\SponsorWater;
+use App\Services\CommentService;
 
 class SponsorController extends Controller
 {
@@ -22,16 +23,20 @@ class SponsorController extends Controller
 
     protected $bulletinService;
     protected $articleService;
+    protected $commentService;
 
-    public function __construct(BulletinService $bulletinService, ArticleService $articleService)
+    public function __construct(BulletinService $bulletinService,
+        ArticleService $articleService, CommentService $commentService)
     {
         $this->bulletinService = $bulletinService;
         $this->articleService = $articleService;
+        $this->commentService = $commentService;
     }
 
     public function index(Request $request)
     {
-        $query = SponsorWater::query();
+
+        $query = SponsorWater::query()->where('status', 1);
 
         if(!empty($request->get('keyword'))){
             $query->where('nickname', 'like', '%'.$request->get('keyword').'%');
@@ -45,12 +50,21 @@ class SponsorController extends Controller
         $lists = $this->articleService->getList();
         $bulletins = $this->bulletinService->getBulletinList();
 
+        $article_id = env('ARTICLE_ID');
+        $article = $this->articleService->getInfoById($article_id);
+
+        $comments = $this->commentService->getList($article_id, 'articles');
+
+
+
         return view('sponsor.index')->with([
             'lists' => $lists,
             'bulletins' => $bulletins,
             'pay_modes' => $this->payMode,
             'rows' => $rows,
             'pageSizes' => [5,10,20,50,],
+            'article'  => $article,
+            'comments' => $comments
 
                                            ]);
     }

@@ -122,4 +122,10 @@ class ArticleService
             Log::info('exception message'.$exception->getMessage());
         }
     }
+
+
+    public function getInfoById($id)
+    {
+        return Article::query()->find($id);
+    }
 }

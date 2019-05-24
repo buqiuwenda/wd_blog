@@ -44,7 +44,9 @@ class ArticleController  extends  Controller
         $comments = $commentServices->getList($article['id'], 'articles');
         $lists = $this->articleService->getList();
 
-        return view('article.show', compact('article', 'comments', 'lists'));
+         $bulletins = $this->bulletinService->getBulletinList();
+
+        return view('article.show', compact('article', 'comments', 'lists', 'bulletins'));
      }
 
 }
