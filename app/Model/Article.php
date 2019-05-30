@@ -7,11 +7,9 @@
  */
 namespace App\Model;
 
-use App\Tools\Markdowner;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Log;
-use App\Tools\Translate\YouDao;
 
 class Article  extends Model
 {
@@ -51,34 +49,6 @@ class Article  extends Model
     {
         return $this->morphToMany(Tag::class,'taggable');
     }
-
-
-
-    public function setTitleAttribute($value)
-    {
-        $this->attributes['title'] = $value;
-        $youDao = new YouDao();
-        $en_value = $youDao->translate($value);
-
-        $this->setUniqueSlug($en_value, str_random(5));
-    }
-
-
-    public function setUniqueSlug($value, $extra)
-    {
-        $slug = str_slug($value.'-'.$extra);
-
-        $info = $this->query()->where('slug', '=', $slug)->first();
-
-        if($info){
-            $this->setUniqueSlug($slug, (int) $extra + 1);
-            return ;
-        }
-
-        $this->attributes['slug'] = $slug;
-    }
-
-
 
 
     public function comments()
