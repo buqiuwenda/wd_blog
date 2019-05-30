@@ -1,4 +1,22 @@
 @extends('layouts.app')
+@section('style')
+    <style>
+       .social-share{
+           margin-bottom:20px;
+       }
+       .article{
+           margin-top:20px;
+       }
+
+        .social-share{
+            font-family:socialshare!important;
+            font-size:16px;
+            font-style:normal;
+            -webkit-font-smoothing:antialiased;
+            -webkit-text-stroke-width:.2px;
+        }
+    </style>
+@endsection
 
 @section('content')
     <div class="container vc-container">
@@ -17,7 +35,12 @@
 
 
 @section('scripts')
-
+    <script src="{{ asset('js/jquery.qrcode.min.js') }}"></script>
+    <script>
+        $(document).ready(function(){
+            $(".")
+        })
+    </script>
 @endsection
 
 

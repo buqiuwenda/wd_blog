@@ -1,10 +1,14 @@
 <div class=" col-sm-3">
     <div class="panel panel-default">
-        <h4 class="vc-widget-title text-danger">金牌赞助</h4>
+        <div class="panel-heading">
+            <h3 class="widget-title panel-title">金牌赞助</h3>
+        </div>
         <div class="panel-body">
-            <p style="text-indent:2rem;word-break:break-all;">
-
-            </p>
+           @if(env('SPONSOR_URL'))
+               <a href="{{ env('SPONSOR_URL') }}">
+                 <img class="img-thumbnail" alt="{{ env('SPONSOR_ATL') }}" src="{{ env('SPONSOR_IMG_URL') }}">
+               </a>
+           @endif
         </div>
     </div>
 
@@ -20,7 +24,9 @@
 
     @forelse($bulletins as $bulletin)
     <div class="panel panel-default">
-        <h4 class="vc-widget-title">{{$bulletin->title}}</h4>
+        <div class="panel-heading">
+            <h3 class="widget-title panel-title">{{ $bulletin->title }}</h3>
+        </div>
         <div class="panel-body">
             <p style="text-indent:2rem;word-break:break-all;font-size:14px">
                {{ $bulletin->context }}
@@ -29,7 +35,9 @@
     </div>
     @empty
     <div class="panel panel-default">
-        <h4 class="vc-widget-title">声明</h4>
+        <div class="panel-heading">
+            <h3 class="widget-title panel-title">声明</h3>
+        </div>
         <div class="panel-body">
             <p style="text-indent:2rem;word-break:break-all;">
                 {{ config('blog.statement') }}
@@ -39,7 +47,9 @@
     @endforelse
 
     <div class="panel panel-default">
-        <h4 class="vc-widget-title">最近更新</h4>
+        <div class="panel-heading">
+            <h3 class="widget-title panel-title">最近更新</h3>
+        </div>
         <div class="panel-body">
             <ul class="list-unstyled" id="many-articles">
                 @forelse($lists as $list)
