@@ -19,9 +19,9 @@
 @endsection
 
 @section('content')
-    <div class="container vc-container">
+    <div class="container">
         <div class="row">
-            <div class="col-sm-12 col-md-9">
+            <div class="col-sm-8">
                 <!-- CODE START -->
                  @include('widgets.show')
 
