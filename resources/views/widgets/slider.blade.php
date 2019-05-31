@@ -1,4 +1,4 @@
-<div class=" col-sm-3">
+<div class=" col-sm-4">
     <div class="panel panel-default">
         <div class="panel-heading">
             <h3 class="widget-title panel-title">金牌赞助</h3>
@@ -48,17 +48,32 @@
 
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="widget-title panel-title">最近更新</h3>
+            <h3 class="widget-title panel-title">热门浏览</h3>
         </div>
         <div class="panel-body">
-            <ul class="list-unstyled" id="many-articles">
+            {{--<ul class="list-unstyled" id="many-articles">--}}
+                {{--@forelse($lists as $list)--}}
+                {{--<li><a href="{{ url($list->slug) }}">{{ $list->title }}</a></li>--}}
+                {{--@empty--}}
+
+               {{--@endforelse--}}
+                {{--<li class="text-right"><a href="javascript:">更多 >></a></li>--}}
+            {{--</ul>--}}
+
+            <div class="list-group">
                 @forelse($lists as $list)
-                <li><a href="{{ url($list->slug) }}">{{ $list->title }}</a></li>
+                <a rel="bookmark" class="list-group-item kb-list-date kb-post-list" href="{{ url($list->slug) }}">
+                    <span class="badge">{{ $list->view_count }}</span>
+                    <h5>
+                        <span class="glyphicon ipt-icon-file"></span>
+                        {{ $list->title }}
+                    </h5>
+                    <span class="clearfix"></span>
+                </a>
                 @empty
 
-               @endforelse
-                <li class="text-right"><a href="#">更多 >></a></li>
-            </ul>
+                @endforelse
+            </div>
         </div>
     </div>
 </div>

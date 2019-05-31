@@ -22,10 +22,10 @@ class ArticleService
         $this->ip = $ip;
     }
 
-    public function page($number = 5, $sort ='desc', $sortColumn = 'updated_at')
+    public function page($number = 5, $sort ='desc', $sortColumn = 'published_at', $sortColumnTow = 'view_count')
     {
         $rows = Article::query()->where('status', '=', 1)->where('is_draft', '=', 0)
-            ->orderby($sortColumn, $sort)->paginate($number);
+            ->orderby($sortColumn, $sort)->orderBy($sortColumnTow, $sort)->paginate($number);
 
         return $rows;
     }
@@ -88,7 +88,7 @@ class ArticleService
         return $row;
     }
 
-    public function getList($number = 6, $sort ='desc', $sortColumn = 'id')
+    public function getList($number = 6, $sort ='desc', $sortColumn = 'view_count')
     {
         $rows = Article::query()->where('status', '=', 1)->where('is_draft', '=', 0)
             ->orderBy($sortColumn, $sort)->take($number)->get();
